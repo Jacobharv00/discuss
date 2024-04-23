@@ -7,6 +7,8 @@ interface IPostShow {
 }
 
 export default async function PostShow({ postId }: IPostShow) {
+    await new Promise((resolve) => setTimeout(resolve, 2500));
+
     const post = await db.post.findFirst({
         where: { id: postId },
     });
